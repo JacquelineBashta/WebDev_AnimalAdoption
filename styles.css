@@ -1,13 +1,15 @@
 :root {
-    --color1: #7220a9;
-    --color2: rgb(215, 126, 205);
+    --color1: #5d1e78;
+    --color2: rgb(227, 119, 184);
+    --bkgrdColor: rgb(242, 234, 243);
+    --btnBrdrColor: rgb(190, 163, 206);
 }
 
 html,
 body {
     padding: 0;
     margin: 0;
-    background-color: rgb(242, 234, 243);
+    background-color: var(--bkgrdColor);
 }
 
 body {
@@ -59,17 +61,17 @@ body {
     /* m0 */
 }
 
-.filter_div {
+.filter-div {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
 }
 
-.filter_div a {
+.filter-div a {
     text-decoration: none;
     padding: 9px;
     color: var(--color1);
-    border: 1px solid rgb(190, 163, 206);
+    border: 1px solid var(--btnBrdrColor);
     border-radius: 4px;
     margin: 4px;
 }
@@ -81,6 +83,7 @@ body {
 
 .animal-card {
     display: grid;
+    margin-bottom: 20px;
     grid-template-columns: 200px 1fr;
     background-color: white;
     border-radius: 20px;
