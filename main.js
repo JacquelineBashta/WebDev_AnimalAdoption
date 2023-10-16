@@ -41,6 +41,11 @@ filterButtons.forEach(el => {
 
 function handleFiterClick(e) {
     let target = e.target;
+
+    // fix the error of clicking on the "span" in "a" section, then redirect target to look ad whole "a"
+    if (e.target.classList.contains("only-large-screen")) {
+        target = e.target.closest("a")
+    }
     e.preventDefault();
     filterButtons.forEach(el => {
         el.classList.remove("active")

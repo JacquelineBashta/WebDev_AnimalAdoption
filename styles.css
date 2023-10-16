@@ -48,7 +48,7 @@ body {
 
 .hero h1 {
     font-weight: normal;
-    font-size: 6rem;
+    font-size: 3rem;
     margin: 0;
 }
 
@@ -99,7 +99,7 @@ body {
 .animal-card {
     display: grid;
     margin-bottom: 20px;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 100%;
     background-color: white;
     border-radius: 20px;
     overflow: hidden;
@@ -156,4 +156,22 @@ body {
 .primary-btn:hover {
     background: linear-gradient(var(--color2), var(--color2));
 
+}
+
+.only-large-screen {
+    display: none;
+}
+
+@media screen and (min-width:500px) {
+    .animal-card {
+        grid-template-columns: 200px 1fr;
+    }
+
+    .hero h1 {
+        font-size: 6rem;
+    }
+
+    .only-large-screen {
+        display: inline;
+    }
 }
