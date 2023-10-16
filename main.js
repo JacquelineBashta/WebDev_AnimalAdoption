@@ -42,5 +42,29 @@ filterButtons.forEach(el => {
 function handleFiterClick(e) {
     let target = e.target;
     e.preventDefault();
+    filterButtons.forEach(el => {
+        el.classList.remove("active")
+    })
+    target.classList.add("active");
+
+    filterPets(target.dataset.filter);
+}
+
+function filterPets(chosenFilter) {
+    const allPets = document.querySelectorAll(".animal-card")
+    if (chosenFilter == "all") {
+        allPets.forEach(el => {
+            el.style.display = ""
+        })
+    } else {
+        allPets.forEach(el => {
+            if (el.querySelector(".species").textContent == chosenFilter) {
+                el.style.display = ""
+            } else {
+                el.style.display = "none"
+            }
+        })
+
+    }
 
 }

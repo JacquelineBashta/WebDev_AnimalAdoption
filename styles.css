@@ -76,6 +76,21 @@ body {
     margin: 4px;
 }
 
+.filter-div .active {
+    background-color: var(--color1);
+    color: #fff;
+}
+
+.filter-div .active:hover {
+    background-color: var(--color1);
+    cursor: default;
+}
+
+.filter-div a:hover {
+
+    background-color: var(--btnBrdrColor);
+}
+
 .animals {
     max-width: 700px;
     margin: 0 auto;
