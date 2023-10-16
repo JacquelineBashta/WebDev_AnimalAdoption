@@ -99,6 +99,8 @@ body {
 .animal-card {
     display: grid;
     margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     grid-template-columns: 100%;
     background-color: white;
     border-radius: 20px;
