@@ -1,16 +1,14 @@
+// fetch the pets data from remote server
 const petPromise = await fetch("https://learnwebcode.github.io/pet-adoption-data/pets.json");
 const pets = await petPromise.json();
 
+// adapt the HTML content based on the data recieved ( use animal card as template)
 
+//grab the Tag with the "id=animal-card" and save it in template var
 const template = document.querySelector("#animal-card");
-const wrapperCards = document.createElement("div");
+const wrapperCardsDiv = document.createElement("div");
 
-function decideAgeText(petAge) {
-    if (!petAge) {
-        return "Less than a year old"
-    }
-    return petAge > 1 ? `${petAge} years old` : "1 year old"
-}
+// clone the template tag for each
 pets.forEach(pet => {
     const clone = template.content.cloneNode(true);
     clone.querySelector("h3").textContent = pet.name;
@@ -28,11 +26,22 @@ pets.forEach(pet => {
     const petAgeText = decideAgeText(petAge);
     clone.querySelector(".age").textContent = petAgeText;
 
-    wrapperCards.appendChild(clone)
+    wrapperCardsDiv.appendChild(clone)
 });
 
-document.querySelector(".animals").appendChild(wrapperCards);
+// insert the newly created div (which contains all animal cards divs) to the tag with class "animals"
+document.querySelector(".animals").appendChild(wrapperCardsDiv);
 
+
+function decideAgeText(petAge) {
+    if (!petAge) {
+        return "Less than a year old"
+    }
+    return petAge > 1 ? `${petAge} years old` : "1 year old"
+}
+
+//////////////////////////////////////////////////////////////////
+// to handle the filter buttons
 
 const filterButtons = document.querySelectorAll(".filter-div a")
 filterButtons.forEach(el => {
@@ -46,18 +55,19 @@ function handleFiterClick(e) {
     if (e.target.classList.contains("only-large-screen")) {
         target = e.target.closest("a")
     }
+
     e.preventDefault();
     filterButtons.forEach(el => {
         el.classList.remove("active")
     })
     target.classList.add("active");
 
-    filterPets(target.dataset.filter);
+    filterPets(target.dataset.filter);// use data-filter tag
 }
 
 function filterPets(chosenFilter) {
     const allPets = document.querySelectorAll(".animal-card")
-    if (chosenFilter == "all") {
+    if (chosenFilter == "All") {
         allPets.forEach(el => {
             el.style.display = ""
         })
@@ -69,7 +79,6 @@ function filterPets(chosenFilter) {
                 el.style.display = "none"
             }
         })
-
     }
-
 }
+
